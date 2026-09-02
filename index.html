@@ -231,6 +231,46 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
   *,*::before,*::after{animation:none!important;transition:none!important}
   .reveal{opacity:1;transform:none}
 }
+
+/* ---------- auth ---------- */
+.auth-overlay{position:fixed;inset:0;background:rgba(10,14,39,.9);backdrop-filter:blur(12px);z-index:2000;display:flex;align-items:center;justify-content:center;padding:20px;opacity:0;transition:opacity .25s;pointer-events:none}
+.auth-overlay.open{opacity:1;pointer-events:all}
+.auth-modal{background:var(--surface);border:1px solid rgba(129,140,248,.38);border-radius:24px;padding:42px 40px 36px;width:100%;max-width:440px;position:relative;transform:translateY(20px) scale(.97);transition:transform .28s cubic-bezier(.34,1.56,.64,1);box-shadow:0 40px 100px rgba(0,0,0,.6),0 0 80px rgba(99,102,241,.15)}
+.auth-overlay.open .auth-modal{transform:none}
+.auth-close{position:absolute;top:16px;right:18px;background:none;border:none;color:var(--muted);cursor:pointer;font-size:1.3rem;line-height:1;padding:4px 8px;border-radius:8px;transition:color .15s,background .15s}
+.auth-close:hover{color:var(--text);background:rgba(255,255,255,.07)}
+.auth-logo{display:flex;align-items:center;gap:10px;font-family:var(--font-display);font-weight:700;font-size:1rem;margin-bottom:28px}
+.auth-logo-mark{width:30px;height:30px;border-radius:8px;background:linear-gradient(135deg,var(--indigo),var(--violet));display:grid;place-items:center;overflow:hidden}
+.auth-logo-mark img{width:100%;height:100%;object-fit:cover}
+.auth-tabs{display:flex;border-bottom:1px solid var(--line);margin-bottom:26px;gap:0}
+.auth-tab{flex:1;padding:10px 6px;background:none;border:none;border-bottom:2px solid transparent;color:var(--muted);font-family:var(--font-display);font-weight:600;font-size:.95rem;cursor:pointer;transition:all .18s;margin-bottom:-1px}
+.auth-tab.active{color:var(--indigo-bright);border-bottom-color:var(--indigo-bright)}
+.auth-field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px}
+.auth-field label{font-size:.78rem;font-weight:600;color:var(--muted);letter-spacing:.07em;text-transform:uppercase}
+.auth-field input{background:rgba(10,14,39,.55);border:1px solid var(--line);border-radius:10px;padding:13px 16px;color:var(--text);font-size:.97rem;font-family:var(--font-body);outline:none;transition:border-color .18s,box-shadow .18s}
+.auth-field input:focus{border-color:var(--indigo);box-shadow:0 0 0 3px rgba(99,102,241,.18)}
+.auth-field input::placeholder{color:rgba(155,163,207,.5)}
+.auth-hint{font-size:.8rem;color:var(--muted);margin:-4px 0 16px}
+.auth-hint strong{color:var(--indigo-bright)}
+.auth-msg{border-radius:10px;padding:11px 14px;font-size:.87rem;margin-bottom:14px;display:none}
+.auth-msg.err{background:rgba(248,113,113,.1);border:1px solid rgba(248,113,113,.38);color:#fca5a5;display:block}
+.auth-msg.ok{background:rgba(52,211,153,.1);border:1px solid rgba(52,211,153,.38);color:#6ee7b7;display:block}
+.auth-btn{width:100%;padding:14px;border-radius:12px;border:none;background:linear-gradient(92deg,var(--indigo),#7C6BF5);color:#fff;font-family:var(--font-display);font-weight:700;font-size:1rem;cursor:pointer;transition:transform .18s,box-shadow .18s,opacity .18s;box-shadow:0 8px 24px rgba(99,102,241,.38);margin-bottom:4px}
+.auth-btn:hover:not(:disabled){transform:translateY(-2px);box-shadow:0 12px 32px rgba(99,102,241,.52)}
+.auth-btn:disabled{opacity:.5;cursor:not-allowed}
+.auth-divider{display:flex;align-items:center;gap:12px;color:var(--muted);font-size:.78rem;margin:16px 0}
+.auth-divider::before,.auth-divider::after{content:"";flex:1;height:1px;background:var(--line)}
+.auth-demo-btn{width:100%;padding:12px;border-radius:12px;border:1px solid var(--line);background:transparent;color:var(--muted);font-family:var(--font-body);font-size:.9rem;cursor:pointer;transition:border-color .18s,background .18s,color .18s}
+.auth-demo-btn:hover{border-color:rgba(129,140,248,.5);background:rgba(99,102,241,.07);color:var(--text)}
+/* nav user chip */
+.nav-user{display:inline-flex;align-items:center;gap:9px;padding:7px 14px;border-radius:100px;border:1px solid rgba(129,140,248,.35);background:rgba(99,102,241,.1);cursor:pointer;font-size:.88rem;font-weight:600;position:relative;color:var(--text);font-family:var(--font-body)}
+.nav-user-avatar{width:24px;height:24px;border-radius:50%;background:linear-gradient(135deg,var(--indigo),var(--violet));display:grid;place-items:center;font-size:.72rem;color:#fff;font-weight:700;flex-shrink:0}
+.nav-user-menu{position:absolute;top:calc(100% + 10px);right:0;background:var(--surface-2);border:1px solid var(--line);border-radius:14px;padding:8px;min-width:180px;z-index:100;box-shadow:0 16px 44px rgba(0,0,0,.5);display:none;text-align:left}
+.nav-user:hover .nav-user-menu,.nav-user:focus-within .nav-user-menu{display:block}
+.nav-user-name{padding:8px 12px 10px;font-size:.8rem;color:var(--muted);font-weight:400;border-bottom:1px solid var(--line);margin-bottom:6px;word-break:break-all}
+.nav-user-menu-item{display:block;width:100%;padding:9px 12px;border:none;background:none;color:var(--muted);font-size:.88rem;cursor:pointer;border-radius:9px;text-align:left;transition:background .15s,color .15s;font-family:var(--font-body)}
+.nav-user-menu-item:hover{background:rgba(99,102,241,.1);color:var(--text)}
+.nav-user-menu-item.danger:hover{background:rgba(248,113,113,.1);color:#fca5a5}
 </style>
 </head>
 <body>
@@ -249,7 +289,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
       <a href="#usecases">Who It's For</a>
       <a href="#faq">FAQ</a>
     </div>
-    <a class="btn btn-primary btn-sm" href="#cta">Book a Walkthrough</a>
+    <div id="navAuthArea"><button class="btn btn-primary btn-sm" onclick="VtxAuth&&VtxAuth.open()">Sign in</button></div>
   </div>
 </nav>
 
@@ -619,6 +659,40 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
   </div>
 </footer>
 
+<!-- ============ AUTH MODAL ============ -->
+<div class="auth-overlay" id="authOverlay" role="dialog" aria-modal="true" aria-label="Sign in to Varitax University">
+  <div class="auth-modal">
+    <button class="auth-close" id="authClose" aria-label="Close">&times;</button>
+    <div class="auth-logo">
+      <span class="auth-logo-mark"><img src="assets/logomark.png" alt=""></span>
+      Varitax <span style="color:var(--muted);font-weight:500">University</span>
+    </div>
+    <div class="auth-tabs" role="tablist">
+      <button class="auth-tab active" id="tabSignin" role="tab" aria-selected="true">Sign in</button>
+      <button class="auth-tab" id="tabSignup" role="tab" aria-selected="false">Create account</button>
+    </div>
+    <div id="authMsg" class="auth-msg" role="alert" aria-live="polite"></div>
+    <form id="authForm" novalidate>
+      <div class="auth-field" id="nameField" style="display:none">
+        <label for="authName">Full name</label>
+        <input type="text" id="authName" placeholder="Jane Smith" autocomplete="name">
+      </div>
+      <div class="auth-field">
+        <label for="authEmail">Email</label>
+        <input type="email" id="authEmail" placeholder="you@example.com" autocomplete="email">
+      </div>
+      <div class="auth-field">
+        <label for="authPass">Password</label>
+        <input type="password" id="authPass" placeholder="········" autocomplete="current-password">
+      </div>
+      <p class="auth-hint" id="signupHint" style="display:none">Demo password: <strong>varitax2026</strong> — or set your own (min 6 chars).</p>
+      <button type="submit" class="auth-btn" id="authSubmitBtn">Sign in</button>
+    </form>
+    <div class="auth-divider">or</div>
+    <button class="auth-demo-btn" id="authDemoBtn">⚡ Continue with demo access</button>
+  </div>
+</div>
+
 <script>
 /* ---------- data ---------- */
 const AGENTS=[
@@ -778,6 +852,152 @@ const mq=document.getElementById("marquee");mq.innerHTML+=mq.innerHTML;
 })();
 
 document.getElementById("yr").textContent=new Date().getFullYear();
+
+/* ---------- auth ---------- */
+const VtxAuth=(function(){
+  const USER_KEY='vtx_user';
+  const ACCT_KEY='vtx_accounts';
+  const DEMO_PASS='varitax2026';
+  // Set this to your n8n webhook URL to receive signup events (leave empty to disable)
+  const N8N_WEBHOOK='';
+  let tab='signin';
+
+  function getUser(){try{return JSON.parse(localStorage.getItem(USER_KEY));}catch{return null;}}
+  function setUser(u){localStorage.setItem(USER_KEY,JSON.stringify(u));}
+  function clearUser(){localStorage.removeItem(USER_KEY);}
+  function getAccounts(){try{return JSON.parse(localStorage.getItem(ACCT_KEY))||{};}catch{return {};}}
+  function saveAccounts(a){localStorage.setItem(ACCT_KEY,JSON.stringify(a));}
+
+  function updateNav(){
+    const u=getUser();
+    const area=document.getElementById('navAuthArea');
+    if(!area)return;
+    if(u){
+      const init=(u.name||u.email||'U')[0].toUpperCase();
+      const displayName=u.name||(u.email||'').split('@')[0]||'User';
+      area.innerHTML=`<div class="nav-user" tabindex="0">
+        <div class="nav-user-avatar">${init}</div>
+        <span>${displayName}</span>
+        <div class="nav-user-menu" role="menu">
+          <div class="nav-user-name">${u.email||'Demo user'}</div>
+          <button class="nav-user-menu-item" onclick="VtxAuth.open('signin');event.stopPropagation()">My account</button>
+          <button class="nav-user-menu-item danger" onclick="VtxAuth.signOut()">Sign out</button>
+        </div>
+      </div>`;
+    } else {
+      area.innerHTML=`<button class="btn btn-primary btn-sm" onclick="VtxAuth.open('signin')">Sign in</button>`;
+    }
+  }
+
+  function showMsg(text,type){
+    const el=document.getElementById('authMsg');
+    el.textContent=text;el.className='auth-msg '+type;
+  }
+  function clearMsg(){const el=document.getElementById('authMsg');el.className='auth-msg';el.textContent='';}
+
+  function open(t){
+    switchTab(t||'signin');
+    document.getElementById('authOverlay').classList.add('open');
+    setTimeout(()=>document.getElementById('authEmail').focus(),60);
+  }
+
+  function close(){
+    document.getElementById('authOverlay').classList.remove('open');
+    clearMsg();
+    document.getElementById('authForm').reset();
+  }
+
+  function switchTab(t){
+    tab=t;
+    document.getElementById('tabSignin').classList.toggle('active',t==='signin');
+    document.getElementById('tabSignup').classList.toggle('active',t==='signup');
+    document.getElementById('tabSignin').setAttribute('aria-selected',String(t==='signin'));
+    document.getElementById('tabSignup').setAttribute('aria-selected',String(t==='signup'));
+    document.getElementById('nameField').style.display=t==='signup'?'':'none';
+    document.getElementById('signupHint').style.display=t==='signup'?'':'none';
+    document.getElementById('authSubmitBtn').textContent=t==='signup'?'Create account':'Sign in';
+    document.getElementById('authPass').autocomplete=t==='signup'?'new-password':'current-password';
+    clearMsg();
+  }
+
+  function submit(e){
+    e.preventDefault();
+    const email=(document.getElementById('authEmail').value||'').trim().toLowerCase();
+    const pass=document.getElementById('authPass').value||'';
+    const name=(document.getElementById('authName').value||'').trim();
+    const btn=document.getElementById('authSubmitBtn');
+    if(!email){showMsg('Please enter your email address.','err');return;}
+    if(!pass){showMsg('Please enter your password.','err');return;}
+    btn.disabled=true;clearMsg();
+
+    if(tab==='signup'){
+      if(pass.length<6){showMsg('Password must be at least 6 characters.','err');btn.disabled=false;return;}
+      const accounts=getAccounts();
+      if(accounts[email]){showMsg('An account with that email already exists — sign in instead.','err');btn.disabled=false;return;}
+      accounts[email]={pass,name:name||email.split('@')[0]};
+      saveAccounts(accounts);
+      const user={email,name:name||email.split('@')[0],ts:Date.now()};
+      setUser(user);
+      notifySignup(user);
+      updateNav();
+      showMsg('Account created. Welcome to Varitax University!','ok');
+      setTimeout(close,1400);
+    } else {
+      // Universal demo password — any email
+      if(pass===DEMO_PASS){
+        const user={email,name:email.split('@')[0],ts:Date.now(),demo:true};
+        setUser(user);updateNav();
+        showMsg('Welcome! You\'re signed in.','ok');
+        setTimeout(close,1000);btn.disabled=false;return;
+      }
+      const accounts=getAccounts();
+      if(accounts[email]&&accounts[email].pass===pass){
+        const user={email,name:accounts[email].name||email.split('@')[0],ts:Date.now()};
+        setUser(user);updateNav();
+        showMsg('Welcome back!','ok');
+        setTimeout(close,1000);
+      } else {
+        showMsg('Email or password incorrect. Demo password: varitax2026','err');
+      }
+    }
+    btn.disabled=false;
+  }
+
+  function demoAccess(){
+    const user={email:'demo@varitax.university',name:'Demo User',ts:Date.now(),demo:true};
+    setUser(user);updateNav();close();
+  }
+
+  function signOut(){
+    clearUser();updateNav();
+    // Brief visual feedback
+    const area=document.getElementById('navAuthArea');
+    if(area){area.style.opacity='.5';setTimeout(()=>{area.style.opacity='';},300);}
+  }
+
+  function notifySignup(user){
+    if(!N8N_WEBHOOK)return;
+    fetch(N8N_WEBHOOK,{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({event:'signup',email:user.email,name:user.name,ts:user.ts,source:'varitax-university-site'})
+    }).catch(()=>{});
+  }
+
+  // Wire up events
+  document.getElementById('authClose').onclick=close;
+  document.getElementById('tabSignin').onclick=()=>switchTab('signin');
+  document.getElementById('tabSignup').onclick=()=>switchTab('signup');
+  document.getElementById('authForm').onsubmit=submit;
+  document.getElementById('authDemoBtn').onclick=demoAccess;
+  document.getElementById('authOverlay').addEventListener('click',function(e){if(e.target===this)close();});
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('authOverlay').classList.contains('open'))close();});
+
+  // Init on load
+  updateNav();
+
+  return{open,close,switchTab,signOut,demoAccess};
+})();
 </script>
 </body>
 </html>
