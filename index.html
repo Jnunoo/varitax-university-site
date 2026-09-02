@@ -858,8 +858,9 @@ const VtxAuth=(function(){
   const USER_KEY='vtx_user';
   const ACCT_KEY='vtx_accounts';
   const DEMO_PASS='varitax2026';
-  // Set this to your n8n webhook URL to receive signup events (leave empty to disable)
-  const N8N_WEBHOOK='';
+  // n8n webhook URL — local demo: http://localhost:5678/webhook-test/varitax-signup
+  // Production (public URL required for Vercel): http://localhost:5678/webhook/varitax-signup
+  const N8N_WEBHOOK='http://localhost:5678/webhook-test/varitax-signup';
   let tab='signin';
 
   function getUser(){try{return JSON.parse(localStorage.getItem(USER_KEY));}catch{return null;}}
