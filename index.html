@@ -11,7 +11,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect x='10' y='10' width='80' height='80' rx='18' fill='%236366F1'/><text x='50' y='68' font-size='52' text-anchor='middle' fill='white' font-family='Arial' font-weight='bold'>V</text></svg>">
+<link rel="icon" type="image/png" href="assets/logomark.png">
 <style>
 :root{
   --ink:#0A0E27;
@@ -49,7 +49,8 @@ section{padding:96px 0;position:relative}
 nav{position:fixed;top:0;width:100%;z-index:1000;backdrop-filter:blur(14px);background:rgba(10,14,39,.78);border-bottom:1px solid var(--line)}
 .nav-inner{display:flex;align-items:center;justify-content:space-between;height:68px}
 .logo{display:flex;align-items:center;gap:11px;font-family:var(--font-display);font-weight:700;font-size:1.12rem}
-.logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--indigo),var(--violet));display:grid;place-items:center;font-size:1.05rem;color:#fff;box-shadow:0 4px 18px rgba(99,102,241,.45)}
+.logo-mark{width:34px;height:34px;border-radius:9px;background:linear-gradient(135deg,var(--indigo),var(--violet));display:grid;place-items:center;font-size:1.05rem;color:#fff;box-shadow:0 4px 18px rgba(99,102,241,.45);overflow:hidden}
+.logo-mark img{width:100%;height:100%;object-fit:cover;display:block}
 .nav-links{display:flex;gap:28px;font-size:.92rem;color:var(--muted)}
 .nav-links a{transition:color .2s}
 .nav-links a:hover{color:var(--text)}
@@ -83,7 +84,7 @@ h1{font-size:clamp(2.6rem,5.6vw,4.3rem);letter-spacing:-.02em;margin-bottom:24px
 .hero-img{width:min(440px,92%);height:auto;border-radius:28px;animation:boxfloat 7s ease-in-out infinite;filter:drop-shadow(0 30px 60px rgba(0,0,0,.55)) drop-shadow(0 0 50px rgba(99,102,241,.25));mask-image:radial-gradient(circle at 50% 50%,#000 62%,transparent 76%);-webkit-mask-image:radial-gradient(circle at 50% 50%,#000 62%,transparent 76%)}
 @keyframes boxfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
 .orbit-chip{position:absolute;display:flex;align-items:center;gap:8px;background:rgba(17,23,55,.92);border:1px solid var(--line);padding:9px 15px;border-radius:12px;font-size:.8rem;font-weight:600;box-shadow:0 10px 26px rgba(0,0,0,.4);animation:chipfloat 5s ease-in-out infinite;white-space:nowrap}
-.orbit-chip .ic{width:22px;height:22px;border-radius:6px;display:grid;place-items:center;font-size:.72rem;color:#fff}
+.orbit-chip .ic{width:22px;height:22px;border-radius:6px;object-fit:cover;box-shadow:0 0 10px rgba(99,102,241,.35)}
 @keyframes chipfloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
 @media(max-width:920px){.hero-grid{grid-template-columns:1fr}.box-visual{height:420px}}
 
@@ -120,7 +121,8 @@ h1{font-size:clamp(2.6rem,5.6vw,4.3rem);letter-spacing:-.02em;margin-bottom:24px
 .agent-explorer{display:grid;grid-template-columns:340px 1fr;gap:28px;margin-top:52px}
 .agent-list{display:flex;flex-direction:column;gap:10px}
 .agent-tab{display:flex;align-items:center;gap:14px;padding:16px 18px;border-radius:14px;border:1px solid var(--line);background:var(--surface);cursor:pointer;transition:all .2s;text-align:left;font-family:var(--font-body);color:var(--text);width:100%}
-.agent-tab .ic{width:38px;height:38px;border-radius:10px;display:grid;place-items:center;font-size:1rem;color:#fff;flex-shrink:0}
+.agent-tab .ic{width:38px;height:38px;border-radius:10px;object-fit:cover;flex-shrink:0;box-shadow:0 0 14px rgba(99,102,241,.3)}
+.agent-detail .ic{width:34px;height:34px;border-radius:9px;object-fit:cover;vertical-align:-9px;margin-right:6px}
 .agent-tab .t{font-weight:600;font-size:.95rem}
 .agent-tab .r{display:block;font-size:.76rem;color:var(--muted)}
 .agent-tab:hover{border-color:rgba(129,140,248,.5)}
@@ -237,11 +239,12 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
 
 <nav>
   <div class="container nav-inner">
-    <a class="logo" href="#hero"><span class="logo-mark">V</span>Varitax <span style="color:var(--muted);font-weight:500">University</span></a>
+    <a class="logo" href="#hero"><span class="logo-mark"><img src="assets/logomark.png" alt="Varitax logomark"></span>Varitax <span style="color:var(--muted);font-weight:500">University</span></a>
     <div class="nav-links">
       <a href="#film">The Film</a>
       <a href="#agents">The Faculty</a>
       <a href="#pipeline">How It Runs</a>
+      <a href="#engage">Work With Us</a>
       <a href="#demo">Build a Box</a>
       <a href="#usecases">Who It's For</a>
       <a href="#faq">FAQ</a>
@@ -273,12 +276,12 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
     </div>
     <div class="box-visual" aria-hidden="true">
       <img class="hero-img" src="assets/hero-box.jpg" alt="" width="1024" height="1024" fetchpriority="high">
-      <div class="orbit-chip" style="top:6%;left:8%;animation-delay:0s"><span class="ic" style="background:#6366F1">◆</span>Advisor · plans</div>
-      <div class="orbit-chip" style="top:2%;right:4%;animation-delay:.7s"><span class="ic" style="background:#A78BFA">❖</span>Librarian · sources</div>
-      <div class="orbit-chip" style="top:42%;right:-2%;animation-delay:1.4s"><span class="ic" style="background:#34D399">✦</span>Assistant · schedules</div>
-      <div class="orbit-chip" style="bottom:14%;right:8%;animation-delay:2.1s"><span class="ic" style="background:#FFB454">✳</span>Tutor · teaches</div>
-      <div class="orbit-chip" style="bottom:4%;left:14%;animation-delay:2.8s"><span class="ic" style="background:#F472B6">✎</span>Editor · verifies</div>
-      <div class="orbit-chip" style="top:44%;left:-4%;animation-delay:3.5s"><span class="ic" style="background:#38BDF8">▲</span>Tracker · proves</div>
+      <div class="orbit-chip" style="top:6%;left:8%;animation-delay:0s"><img class="ic" src="assets/ic-advisor.jpg" alt="">Advisor · plans</div>
+      <div class="orbit-chip" style="top:2%;right:4%;animation-delay:.7s"><img class="ic" src="assets/ic-librarian.jpg" alt="">Librarian · sources</div>
+      <div class="orbit-chip" style="top:42%;right:-2%;animation-delay:1.4s"><img class="ic" src="assets/ic-assistant.jpg" alt="">Assistant · schedules</div>
+      <div class="orbit-chip" style="bottom:14%;right:8%;animation-delay:2.1s"><img class="ic" src="assets/ic-tutor.jpg" alt="">Tutor · teaches</div>
+      <div class="orbit-chip" style="bottom:4%;left:14%;animation-delay:2.8s"><img class="ic" src="assets/ic-editor.jpg" alt="">Editor · verifies</div>
+      <div class="orbit-chip" style="top:44%;left:-4%;animation-delay:3.5s"><img class="ic" src="assets/ic-tracker.jpg" alt="">Tracker · proves</div>
     </div>
   </div>
 </header>
@@ -363,60 +366,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
       <p class="section-sub">Work flows through the faculty in a fixed, quality-gated order — plan first, verify last, track always. This is the infographic version of what happens every time the box takes on a subject.</p>
     </div>
     <div class="pipeline-frame reveal">
-      <svg viewBox="0 0 1080 380" width="100%" role="img" aria-label="Pipeline: Advisor plans, then Librarian and Assistant work in parallel, then Tutor teaches, then Editor verifies. Progress Tracker monitors every stage.">
-        <defs>
-          <linearGradient id="gA" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#6366F1"/><stop offset="1" stop-color="#4F46E5"/></linearGradient>
-          <linearGradient id="gB" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#A78BFA"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient>
-          <linearGradient id="gC" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#34D399"/><stop offset="1" stop-color="#10B981"/></linearGradient>
-          <linearGradient id="gD" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FFB454"/><stop offset="1" stop-color="#F59E0B"/></linearGradient>
-          <linearGradient id="gE" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F472B6"/><stop offset="1" stop-color="#EC4899"/></linearGradient>
-        </defs>
-        <!-- flow lines -->
-        <g stroke="#5B63C7" stroke-width="2" fill="none" opacity=".8">
-          <path class="flow-line" d="M 190 160 C 240 160 240 92 290 92"/>
-          <path class="flow-line" d="M 190 160 C 240 160 240 228 290 228"/>
-          <path class="flow-line" d="M 470 92 C 520 92 520 160 570 160"/>
-          <path class="flow-line" d="M 470 228 C 520 228 520 160 570 160"/>
-          <path class="flow-line" d="M 750 160 L 830 160"/>
-        </g>
-        <!-- tracker rail -->
-        <rect x="30" y="316" width="1020" height="44" rx="12" fill="rgba(56,189,248,.08)" stroke="rgba(56,189,248,.4)" stroke-dasharray="5 5"/>
-        <text x="540" y="344" text-anchor="middle" fill="#38BDF8" font-family="Space Grotesk" font-size="15" font-weight="600">▲ PROGRESS TRACKER — monitors every stage, gates advancement on verified milestones</text>
-        <g stroke="rgba(56,189,248,.35)" stroke-width="1.5">
-          <line x1="110" y1="215" x2="110" y2="316"/><line x1="380" y1="283" x2="380" y2="316"/><line x1="660" y1="215" x2="660" y2="316"/><line x1="920" y1="215" x2="920" y2="316"/>
-        </g>
-        <!-- stage 1 -->
-        <g>
-          <rect x="30" y="105" width="160" height="110" rx="16" fill="url(#gA)"/>
-          <text x="110" y="147" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="17" font-weight="700">ADVISOR</text>
-          <text x="110" y="172" text-anchor="middle" fill="rgba(255,255,255,.85)" font-family="Inter" font-size="12.5">5-decision interview</text>
-          <text x="110" y="192" text-anchor="middle" fill="rgba(255,255,255,.85)" font-family="Inter" font-size="12.5">week-by-week plan</text>
-        </g>
-        <!-- stage 2 parallel -->
-        <g>
-          <rect x="290" y="42" width="180" height="100" rx="16" fill="url(#gB)"/>
-          <text x="380" y="82" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="16" font-weight="700">LIBRARIAN</text>
-          <text x="380" y="106" text-anchor="middle" fill="rgba(255,255,255,.88)" font-family="Inter" font-size="12.5">vetted source shelf</text>
-          <rect x="290" y="178" width="180" height="100" rx="16" fill="url(#gC)"/>
-          <text x="380" y="218" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="16" font-weight="700">ASSISTANT</text>
-          <text x="380" y="242" text-anchor="middle" fill="rgba(255,255,255,.88)" font-family="Inter" font-size="12.5">calendar + study docs</text>
-          <text x="380" y="26" text-anchor="middle" fill="#9BA3CF" font-family="Inter" font-size="11.5" font-style="italic">run in parallel</text>
-        </g>
-        <!-- stage 3 -->
-        <g>
-          <rect x="570" y="105" width="180" height="110" rx="16" fill="url(#gD)"/>
-          <text x="660" y="147" text-anchor="middle" fill="#1a1300" font-family="Space Grotesk" font-size="17" font-weight="700">TUTOR</text>
-          <text x="660" y="172" text-anchor="middle" fill="rgba(26,19,0,.8)" font-family="Inter" font-size="12.5">Socratic sessions</text>
-          <text x="660" y="192" text-anchor="middle" fill="rgba(26,19,0,.8)" font-family="Inter" font-size="12.5">practice + quizzes</text>
-        </g>
-        <!-- stage 4 -->
-        <g>
-          <rect x="830" y="105" width="180" height="110" rx="16" fill="url(#gE)"/>
-          <text x="920" y="147" text-anchor="middle" fill="#fff" font-family="Space Grotesk" font-size="17" font-weight="700">EDITOR</text>
-          <text x="920" y="172" text-anchor="middle" fill="rgba(255,255,255,.88)" font-family="Inter" font-size="12.5">fact-check pass</text>
-          <text x="920" y="192" text-anchor="middle" fill="rgba(255,255,255,.88)" font-family="Inter" font-size="12.5">quality gate ✓</text>
-        </g>
-      </svg>
+      <img src="assets/pipeline-flow.jpg" alt="Pipeline infographic: Advisor plans, then Librarian and Assistant work in parallel, then Tutor teaches, then Editor verifies. A Progress Tracker rail monitors every stage and gates advancement on verified milestones." style="width:100%;display:block;border-radius:14px" loading="lazy">
     </div>
     <div class="stats-band">
       <div class="stat reveal"><div class="n" data-count="5">0</div><div class="l">decisions in the curriculum interview</div></div>
@@ -602,6 +552,52 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
   </div>
 </section>
 
+<!-- ============ ENGAGE ============ -->
+<section id="engage">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Work With Us</div>
+      <h2 class="section-title">Three ways to <span class="grad">open the box.</span></h2>
+      <p class="section-sub">Every engagement starts with the same 30-minute walkthrough: a real learning goal goes in, the six-agent faculty runs, a verified deliverable comes out. Then we pick the shape that fits you.</p>
+    </div>
+    <div class="engage-grid reveal">
+      <div class="engage-card">
+        <div class="engage-tier">Fastest start</div>
+        <h3>The Program</h3>
+        <p class="engage-desc">Done-for-you. Bring us one subject and one audience — we run the full pipeline and hand you the finished program: sequenced curriculum, vetted source shelf, session materials, practice sets, and milestone dashboards.</p>
+        <ul class="engage-points">
+          <li>One subject, built end-to-end</li>
+          <li>Editor-verified, source-anchored content</li>
+          <li>Delivered in weeks, not quarters</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm" href="https://calendly.com/johnnunoo-jr/university-in-the-box-live-demo" target="_blank" rel="noopener">Scope a program →</a>
+      </div>
+      <div class="engage-card featured">
+        <div class="engage-tier">Most popular</div>
+        <h3>The Managed University</h3>
+        <p class="engage-desc">We operate a dedicated Varitax faculty for your organization — ongoing course production, learner tracking, content updates, and quality gates, run month over month while you keep your team focused on the business.</p>
+        <ul class="engage-points">
+          <li>A standing faculty working your roadmap</li>
+          <li>Progress dashboards and at-risk flags</li>
+          <li>Human approval gates on everything published</li>
+        </ul>
+        <a class="btn btn-primary btn-sm" href="https://calendly.com/johnnunoo-jr/university-in-the-box-live-demo" target="_blank" rel="noopener">Book the live demo →</a>
+      </div>
+      <div class="engage-card">
+        <div class="engage-tier">Full ownership</div>
+        <h3>The Deployed Box</h3>
+        <p class="engage-desc">Your own instance, on your infrastructure, under your brand. We install the complete six-agent institution white-labeled to your organization, train your operators, and hand you the keys — with optional ongoing support.</p>
+        <ul class="engage-points">
+          <li>White-labeled, private deployment</li>
+          <li>Your data and keys never leave your control</li>
+          <li>Proven install path, not a custom build</li>
+        </ul>
+        <a class="btn btn-ghost btn-sm" href="https://calendly.com/johnnunoo-jr/university-in-the-box-live-demo" target="_blank" rel="noopener">Talk deployment →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- ============ CTA ============ -->
 <section id="cta">
   <div class="container">
@@ -609,8 +605,8 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
       <h2>Ready to open <span class="grad">the box?</span></h2>
       <p>Whether you're upskilling a company, productizing expertise, or designing the education you never got — it starts with one conversation.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="mailto:partnerships@varitax.university?subject=University%20in%20the%20Box%20—%20Walkthrough%20Request">Book a walkthrough</a>
-        <a class="btn btn-ghost" href="#demo">Try the demo again</a>
+        <a class="btn btn-primary" href="https://calendly.com/johnnunoo-jr/university-in-the-box-live-demo" target="_blank" rel="noopener">Book the 30-minute live demo</a>
+        <a class="btn btn-ghost" href="mailto:partnerships@varitax.university?subject=University%20in%20the%20Box%20—%20Inquiry">Email us instead</a>
       </div>
     </div>
   </div>
@@ -618,7 +614,7 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
 
 <footer>
   <div class="container foot">
-    <div class="logo"><span class="logo-mark">V</span>Varitax University</div>
+    <div class="logo"><span class="logo-mark"><img src="assets/logomark.png" alt="Varitax logomark"></span>Varitax University</div>
     <div>A complete university. In a box. · © <span id="yr"></span> Varitax University</div>
   </div>
 </footer>
@@ -626,22 +622,22 @@ footer{border-top:1px solid var(--line);padding:44px 0;color:var(--muted);font-s
 <script>
 /* ---------- data ---------- */
 const AGENTS=[
- {name:"Advisor",tier:"Foundation",color:"#6366F1",icon:"◆",tag:"Curriculum Architect",
+ {name:"Advisor",tier:"Foundation",color:"#6366F1",icon:"assets/ic-advisor.jpg",tag:"Curriculum Architect",
   desc:"The Advisor engineers a personalized, sequenced curriculum for any topic. It runs a five-decision interview — Destination, Baseline, Sequencing, Cut List, Milestones — one question at a time, then produces a week-by-week plan where every milestone is a provable deliverable.",
   caps:["Five-decision curriculum interview","Week-by-week sequenced plan","Ruthless cut list — no filler content","Re-sequences when life happens"]},
- {name:"Librarian",tier:"Foundation",color:"#A78BFA",icon:"❖",tag:"Ground-Truth Curator",
+ {name:"Librarian",tier:"Foundation",color:"#A78BFA",icon:"assets/ic-librarian.jpg",tag:"Ground-Truth Curator",
   desc:"The Librarian builds the vetted source shelf the whole program stands on. It catalogs, tags, and credibility-triages every resource for the curriculum's subject — so teaching is anchored to trustworthy material, never to model memory.",
   caps:["Credibility triage on every source","Subject-specific reference shelf","Retrieval on demand for the faculty","Your proprietary content, first-class"]},
- {name:"Assistant",tier:"Execution",color:"#34D399",icon:"✦",tag:"Operations Layer",
+ {name:"Assistant",tier:"Execution",color:"#34D399",icon:"assets/ic-assistant.jpg",tag:"Operations Layer",
   desc:"The Assistant turns the curriculum into motion: a structured study document, calendar sessions distributed across your real weekly time budget, and milestone reminders. Admin, comms, and scheduling — handled.",
   caps:["Curriculum → structured study docs","Sessions calendared to your time budget","Milestone reminders that don't quit","Handles the admin nobody enjoys"]},
- {name:"Tutor",tier:"Application",color:"#FFB454",icon:"✳",tag:"Socratic Teacher",
+ {name:"Tutor",tier:"Application",color:"#FFB454",icon:"assets/ic-tutor.jpg",tag:"Socratic Teacher",
   desc:"The Tutor delivers the sessions — on any topic. It teaches Socratically, diagnosing comprehension gaps one question at a time, and builds worked examples, practice problems, and quizzes matched to exactly where you are.",
   caps:["Socratic, gap-diagnosing dialogue","Worked examples & practice sets","Quizzes tuned to your weak spots","Optional cross-disciplinary lens"]},
- {name:"Editor",tier:"Application",color:"#F472B6",icon:"✎",tag:"Quality Gatekeeper",
+ {name:"Editor",tier:"Application",color:"#F472B6",icon:"assets/ic-editor.jpg",tag:"Quality Gatekeeper",
   desc:"The Editor is the output critic and quality owner. It challenges core logic, tightens structure, enforces voice, and runs the factual-verification pass on every draft — owning the QA gate on anything published. If it doesn't verify, it doesn't ship.",
   caps:["Independent fact-check pass","Challenges logic, tightens structure","Owns the publish/no-publish gate","Guards brand voice & standards"]},
- {name:"Progress Tracker",tier:"Support",color:"#38BDF8",icon:"▲",tag:"Proof of Learning",
+ {name:"Progress Tracker",tier:"Support",color:"#38BDF8",icon:"assets/ic-tracker.jpg",tag:"Proof of Learning",
   desc:"The Progress Tracker reconciles the Advisor's plan against the Tutor's session logs, publishes completion and KPI dashboards, flags at-risk learners early, and gates advancement on verified prerequisite completion. Watch time is not learning — verified milestones are.",
   caps:["Plan-vs-reality reconciliation","Completion & KPI dashboards","At-risk learner early warnings","Advancement gated on verification"]}
 ];
@@ -652,7 +648,7 @@ const list=document.getElementById("agentList"),detail=document.getElementById("
 AGENTS.forEach((a,i)=>{
   const b=document.createElement("button");
   b.className="agent-tab"+(i===0?" active":"");b.setAttribute("role","tab");
-  b.innerHTML=`<span class="ic" style="background:${a.color}">${a.icon}</span><span><span class="t">${a.name}</span><span class="r">${a.tag}</span></span>`;
+  b.innerHTML=`<img class="ic" src="${a.icon}" alt=""><span><span class="t">${a.name}</span><span class="r">${a.tag}</span></span>`;
   b.onclick=()=>{document.querySelectorAll(".agent-tab").forEach(t=>t.classList.remove("active"));b.classList.add("active");renderAgent(i);};
   list.appendChild(b);
 });
@@ -661,7 +657,7 @@ function renderAgent(i){
   detail.style.opacity=0;
   setTimeout(()=>{
     detail.innerHTML=`<span class="role-pill" style="color:${tc};border:1px solid ${tc}55;background:${tc}14">${a.tier} tier</span>
-      <h3><span style="color:${a.color}">${a.icon}</span> ${a.name} <span style="color:var(--muted);font-weight:500;font-size:1.05rem">· ${a.tag}</span></h3>
+      <h3><img class="ic" src="${a.icon}" alt=""> ${a.name} <span style="color:var(--muted);font-weight:500;font-size:1.05rem">· ${a.tag}</span></h3>
       <p>${a.desc}</p><div class="agent-caps">${a.caps.map(c=>`<div class="cap">${c}</div>`).join("")}</div>`;
     detail.style.transition="opacity .3s";detail.style.opacity=1;
   },140);
