@@ -859,8 +859,11 @@ const VtxAuth=(function(){
   const ACCT_KEY='vtx_accounts';
   const DEMO_PASS='varitax2026';
   // n8n webhook URL — local demo: http://localhost:5678/webhook-test/varitax-signup
-  // Production (public URL required for Vercel): http://localhost:5678/webhook/varitax-signup
-  const N8N_WEBHOOK='http://localhost:5678/webhook-test/varitax-signup';
+  // Production (public URL required for Vercel): /api/signup-relay (Vercel serverless relay)
+  const N8N_WEBHOOK='/api/signup-relay';
+  // Demo token sent as X-Varitax-Token header — n8n IF node validates against $env.VARITAX_WEBHOOK_SECRET
+  // For Vercel production, use /api/signup-relay instead (token kept server-side, never in browser)
+  const N8N_WEBHOOK_SECRET='vtx-demo-2026';
   let tab='signin';
 
   function getUser(){try{return JSON.parse(localStorage.getItem(USER_KEY));}catch{return null;}}
@@ -980,7 +983,7 @@ const VtxAuth=(function(){
     if(!N8N_WEBHOOK)return;
     fetch(N8N_WEBHOOK,{
       method:'POST',
-      headers:{'Content-Type':'application/json'},
+      headers:{'Content-Type':'application/json','X-Varitax-Token':N8N_WEBHOOK_SECRET},
       body:JSON.stringify({event:'signup',email:user.email,name:user.name,ts:user.ts,source:'varitax-university-site'})
     }).catch(()=>{});
   }
